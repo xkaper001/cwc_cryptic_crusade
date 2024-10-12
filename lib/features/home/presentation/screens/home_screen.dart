@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cwc_cryptic_crusade/utils/router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 padding: const EdgeInsets.all(8.0),
-                height: 750,
+                height: 500,
                 child: Swiper(
                   itemCount: rules.length,
                   viewportFraction: 0.9,
@@ -299,13 +300,39 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
   }
 
-  void showCodeDialog(BuildContext context) {
+  Future<void> showCodeDialog(BuildContext context) async {
     final codeController = TextEditingController();
+    final teamId = FirebaseAuth.instance.currentUser!.displayName!;
+    // Init Firebase Firestore
+    // try {
+    //   final db = FirebaseFirestore.instance.collection('leaderboard').doc(teamId).set(
+    //     {
+    //       'team': teamId,
+    //       'lives': 12,
+    //       'onlevel': 1,
+    //       'hints': 4,
+    //       'array': {
+    //         'level1': null,
+    //         'level2': null,
+    //         'level3': null,
+    //         'sidequest': null,
+    //         'level4': null,
+    //         'level5': null,
+    //         'level6': null,
+    //         'level7': null,
+    //       }
+    //     },
+    //   );
+    //   log('Firestore initialized');
+    // } catch (e) {
+    //   log(e.toString());
+    // }
+
     showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('Enter Code'),
+            title: const Text('Enter code'),
             content: TextField(
               controller: codeController,
               textAlign: TextAlign.center,

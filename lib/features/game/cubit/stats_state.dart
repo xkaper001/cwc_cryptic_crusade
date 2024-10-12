@@ -2,25 +2,43 @@ part of 'stats_cubit.dart';
 
 @immutable
 sealed class StatsState {
-  final int hints;
-  final int hearts;
-  final int level;
+  final TeamStats teamStats;
 
-  const StatsState({required this.hints, required this.hearts, required this.level});
+  const StatsState({required this.teamStats});
 }
 
 final class StatsInitial extends StatsState {
-  const StatsInitial() : super(hints: 4, hearts: 12, level: 1);
+  final String teamId;
+  StatsInitial(this.teamId)
+      : super(
+          teamStats: TeamStats(
+            teamId: '',
+            lives: 12,
+            hints: 3,
+            onLevel: 0,
+            timestamps: TimeStamps(
+              level1: null,
+              level2: null,
+              level3: null,
+              level4: null,
+              level5: null,
+              level6: null,
+              level7: null,
+              sidequest: null,
+              startedAt: null,
+            ),
+          ),
+        );
 }
 
 final class StateUpdated extends StatsState {
-  const StateUpdated({required super.hints, required super.hearts, required super.level});
+  const StateUpdated({required super.teamStats});
 }
 
 final class StateNextLevel extends StatsState {
-  const StateNextLevel({required super.hints, required super.hearts, required super.level});
+  const StateNextLevel({required super.teamStats});
 }
 
 final class StateGameOver extends StatsState {
-  const StateGameOver({required super.hints, required super.hearts, required super.level});
+  const StateGameOver({required super.teamStats});
 }

@@ -90,7 +90,9 @@ class QuerySideQuest extends StatelessWidget {
                 duration: const Duration(milliseconds: 750),
                 curve: Curves.easeInOut,
               );
-              context.read<StatsCubit>().changeLevel(4);
+              // context
+              //     .read<StatsCubit>()
+              //     .setLevelCompletedTime('level4', DateTime.now());
             },
             child: const Text(
               "Skip",
@@ -134,10 +136,10 @@ class _MainSideQuestState extends State<MainSideQuest> {
         child: Column(
           children: [
             const Text(
-              "Side Quest Riddle Here..",
+              AppConstants.sideQuestDescription,
             ),
             const SizedBox(height: 16),
-            const RiddleBox(riddle: AppConstants.level1Riddle),
+            const RiddleBox(riddle: AppConstants.sideQuestRiddle),
             const SizedBox(height: 16),
             TextField(
               textAlign: TextAlign.center,
@@ -156,12 +158,15 @@ class _MainSideQuestState extends State<MainSideQuest> {
                   setState(() {
                     isLoading = false;
                   });
-                  if (keyController.text == AppConstants.level1Flag) {
-                    widget.pageController.nextPage(
+                  if (keyController.text == AppConstants.sideQuestFlag) {
+                    widget.pageController.animateToPage(
+                      5,
                       duration: const Duration(milliseconds: 750),
                       curve: Curves.easeInOut,
                     );
-                    context.read<StatsCubit>().changeLevel(4);
+                    context
+                        .read<StatsCubit>()
+                        .setLevelCompletedTime('sidequest', DateTime.now());
                   } else {
                     context.read<StatsCubit>().lostHeart();
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -189,7 +194,9 @@ class _MainSideQuestState extends State<MainSideQuest> {
                   duration: const Duration(milliseconds: 750),
                   curve: Curves.easeInOut,
                 );
-                context.read<StatsCubit>().changeLevel(4);
+                // context
+                //     .read<StatsCubit>()
+                //     .setLevelCompletedTime('level4', DateTime.now());
               },
               child: const Text(
                 "Skip",

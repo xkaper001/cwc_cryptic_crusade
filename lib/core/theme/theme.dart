@@ -11,6 +11,8 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(48.0))),
+      progressIndicatorTheme:
+          const ProgressIndicatorThemeData(color: Colors.deepPurple),
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStateProperty.all(

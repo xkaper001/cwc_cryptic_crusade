@@ -10,18 +10,18 @@ AppBar statsAppBar() {
       builder: (context, state) {
         return TextButton(
             onPressed: () => showHintConfirmation(context),
-            child: Text('${state.hints} ⚡'));
+            child: Text('${state.teamStats.hints} ⚡'));
       },
     ),
     title: BlocBuilder<StatsCubit, StatsState>(
       builder: (context, state) {
         String level;
-        if (state.level == -1) {
+        if (state.teamStats.onLevel == -1) {
           level = "Side Quest";
-        } else if (state.level == 100) {
+        } else if (state.teamStats.onLevel == 100) {
           level = "Congratulations!";
         } else {
-          level = "Level ${state.level}";
+          level = "Level ${state.teamStats.onLevel}";
         }
         return Text(level);
       },
@@ -31,7 +31,9 @@ AppBar statsAppBar() {
       BlocBuilder<StatsCubit, StatsState>(
         builder: (context, state) {
           return TextButton(
-              onPressed: () {}, child: Text('${state.hearts}' ' ❤️'));
+            onPressed: () {},
+            child: Text('${state.teamStats.lives}' ' ❤️'),
+          );
         },
       ),
     ],

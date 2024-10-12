@@ -55,9 +55,9 @@ class _Level7ScreenState extends State<Level7Screen> {
                     setState(() {
                       isLoading = false;
                     });
-                    if (flagController.text == AppConstants.level1Flag) {
+                    if (flagController.text.trim() == AppConstants.level1Flag) {
                       AppRoutes.router.go(AppRoutes.end);
-                      context.read<StatsCubit>().changeLevel(100);
+                      context.read<StatsCubit>().setLevelCompletedTime('level7', DateTime.now());
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

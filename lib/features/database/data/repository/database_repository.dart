@@ -2,12 +2,12 @@ import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/error/failure.dart';
-import '../../domain/repository/i_login_repository.dart';
-import '../data_source/login_remote_data_source.dart';
+import '../../domain/repository/i_database_repository.dart';
+import '../data_source/database_remote_data_source.dart';
 
-class LoginRepository implements ILoginRepository {
-  final LoginRemoteDataSource loginRemoteDataSource;
-  LoginRepository(this.loginRemoteDataSource);
+class DatabaseRepository implements IDatabaseRepository {
+  final DatabaseRemoteDataSource databaseRemoteDataSource;
+  DatabaseRepository(this.databaseRemoteDataSource);
 
   @override
   Future<Either<Failure, String>> someFunction(

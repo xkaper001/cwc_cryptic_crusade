@@ -54,12 +54,14 @@ class _Level6ScreenState extends State<Level6Screen> {
                     setState(() {
                       isLoading = false;
                     });
-                    if (flagController.text == AppConstants.level1Flag) {
+                    if (flagController.text.trim() == AppConstants.level1Flag) {
                       widget.pageController.nextPage(
                         duration: const Duration(seconds: 1),
                         curve: Curves.easeInOut,
                       );
-                      context.read<StatsCubit>().changeLevel(7);
+                      context
+                          .read<StatsCubit>()
+                          .setLevelCompletedTime('level6', DateTime.now());
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

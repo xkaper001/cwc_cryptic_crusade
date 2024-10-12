@@ -1,7 +1,7 @@
 
 import '../../../../core/error/exceptions.dart';
 
-abstract interface class ILoginRemoteDataSource {
+abstract interface class IDatabaseRemoteDataSource {
   Future<String> someFunction({
     required String name,
     required String email,
@@ -9,8 +9,8 @@ abstract interface class ILoginRemoteDataSource {
   });
 }
 
-class LoginRemoteDataSource implements ILoginRemoteDataSource {
-  LoginRemoteDataSource();
+class DatabaseRemoteDataSource implements IDatabaseRemoteDataSource {
+  DatabaseRemoteDataSource();
   
   @override
   Future<String> someFunction({

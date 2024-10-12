@@ -1,0 +1,90 @@
+Designing the levels with a balance of increasing difficulty and fun is key to keeping players engaged. Here's a suggested structure for each level, incorporating different encryption, decryption methods, riddles, and location-based challenges.
+
+---
+
+### **Level 1: Basic Encryption (Caesar Cipher)**
+- **Encryption:** The encrypted string uses a **Caesar Cipher** with a shift of 3.
+- **Decryption Task:** Your team will need to decipher a simple text encoded with the Caesar Cipher.
+- **Riddle:** "I have keys but no locks, space but no room. You can enter, but you can’t go outside. What am I?"
+- **Answer:** "Keyboard"
+- **Location Clue:** The next location could be a computer lab or a classroom with many computers.
+- **QR Code Location:** On the door or near the entrance of the computer lab.
+
+---
+
+### **Level 2: Vigenère Cipher**
+- **Encryption:** A string encrypted using the **Vigenère Cipher** with a simple keyword (e.g., "CAMPUS").
+- **Decryption Task:** Your team must use the Vigenère Cipher and the provided keyword to decrypt the string.
+- **Riddle:** "I can run, but never walk. Wherever I go, thoughts are close behind. What am I?"
+- **Answer:** "A river"
+- **Location Clue:** A fountain or water feature on campus.
+- **QR Code Location:** Near the campus fountain or waterbody.
+
+---
+
+### **Level 3: Atbash Cipher**
+- **Encryption:** The string is encoded using the **Atbash Cipher** (a letter substitution cipher that reverses the alphabet).
+- **Decryption Task:** Use the Atbash cipher to decrypt the string.
+- **Riddle:** "Forward I am heavy, but backward I am not. What am I?"
+- **Answer:** "Ton"
+- **Location Clue:** A place associated with weights or physical exercise, like a gym.
+- **QR Code Location:** In or near the gymnasium or a sports field.
+
+---
+
+### **Side Quest (Optional)**:
+- **Unlock Condition:** A hidden message appears at the end of Level 3, hinting that "not all paths lead forward."
+- **Encryption Method:** A **Substitution Cipher** with a scrambled alphabet.
+- **Decryption Task:** Solve this side quest using clues from earlier levels.
+- **Hint for Riddle:** "Find the place where minds are nourished."
+- **Location:** The library or a study room.
+- **Reward:** Successfully completing the side quest lets the team skip directly to Level 6.
+
+---
+
+### **Level 4: Playfair Cipher**
+- **Encryption:** A string encrypted using the **Playfair Cipher** (using a keyword like "PUZZLE").
+- **Decryption Task:** Use the Playfair Cipher and the keyword to decrypt the message.
+- **Riddle:** "I’m light as a feather, yet the strongest man can’t hold me for much longer. What am I?"
+- **Answer:** "Breath"
+- **Location Clue:** A health center or a location known for physical activity.
+- **QR Code Location:** Near the college health center or wellness zone.
+
+---
+
+### **Level 5: Rail Fence Cipher**
+- **Encryption:** A string encoded with the **Rail Fence Cipher**.
+- **Decryption Task:** Your team needs to decrypt a message hidden in a zigzag pattern (3 rails).
+- **Riddle:** "What has to be broken before you can use it?"
+- **Answer:** "An egg"
+- **Location Clue:** The canteen or a cafeteria.
+- **QR Code Location:** Near a dining area or food court.
+
+---
+
+### **Level 6: Hashing Challenge (Bonus)**
+- **Encryption:** The string is hashed using **SHA-256** (irreversible).
+- **Decryption Task:** This is a bonus level. The challenge is to verify a pre-computed hash with a correct string (e.g., using brute force or a known answer).
+- **Riddle:** "The more you take, the more you leave behind. What am I?"
+- **Answer:** "Footsteps"
+- **Location Clue:** A common walking path or a significant location on campus like a garden or pathway.
+- **QR Code Location:** In the middle of a walking path or near a symbolic college landmark.
+
+---
+
+### **Final Level (Level 7): Combined Cipher (All Methods)**
+- **Encryption:** The final string uses a combination of ciphers from previous levels (e.g., Caesar + Vigenère).
+- **Decryption Task:** Your team must apply multiple encryption methods to decode the final message.
+- **Riddle:** "What comes once in a minute, twice in a moment, but never in a thousand years?"
+- **Answer:** "The letter M"
+- **Location Clue:** The location should be a place of significance for students (e.g., the main auditorium or graduation hall).
+- **QR Code Location:** The final QR code will be at the entrance of the main college hall or the auditorium, marking the end of the game.
+
+---
+
+### General Notes:
+- **Difficulty Progression:** The levels start with easier encryption methods and gradually increase in complexity.
+- **Hints System:** If players struggle, consider providing hints after one or two incorrect answers.
+- **Interactive Features:** Incorporate a feature where players can request hints at the cost of losing a life.
+
+This design gradually increases the difficulty and incorporates both encryption and real-world exploration, creating a comprehensive and engaging game experience.

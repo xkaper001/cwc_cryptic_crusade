@@ -1,9 +1,11 @@
 import 'package:cwc_cryptic_crusade/features/game/game_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/auth/presentation/screens/login_screen.dart';
 import '../features/home/presentation/screens/end_screen.dart';
 import '../features/home/presentation/screens/home_screen.dart';
-import '../features/login/presentation/screens/login_screen.dart';
 import '../features/onboard/presentation/screens/onboard_screen.dart';
 
 class AppRoutes {
@@ -18,7 +20,17 @@ class AppRoutes {
     routes: [
       GoRoute(
         path: home,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.data != null) {
+                return const HomeScreen();
+              }
+              return const LoginScreen();
+            }),
       ),
       GoRoute(
         path: onboard,
@@ -26,7 +38,17 @@ class AppRoutes {
       ),
       GoRoute(
         path: login,
-        builder: (context, state) => const LoginScreen(),
+        builder: (context, state) => StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.data != null) {
+                return const HomeScreen();
+              }
+              return const LoginScreen();
+            }),
       ),
       GoRoute(
         path: game,
