@@ -99,6 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               teamIdController.text.trim(),
                               playKeyController.text.trim(),
                             ));
+                        
                       }
                     },
                     child: (state is AuthLoading)

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_loadingkit/flutter_animated_loadingkit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -92,7 +93,7 @@ class QuerySideQuest extends StatelessWidget {
               );
               // context
               //     .read<StatsCubit>()
-              //     .setLevelCompletedTime('level4', DateTime.now());
+              //     .setLevelCompletedTime('level4', Timestamp.now());
             },
             child: const Text(
               "Skip",
@@ -166,7 +167,7 @@ class _MainSideQuestState extends State<MainSideQuest> {
                     );
                     context
                         .read<StatsCubit>()
-                        .setLevelCompletedTime('sidequest', DateTime.now());
+                        .setLevelCompletedTime('sidequest', Timestamp.now());
                   } else {
                     context.read<StatsCubit>().lostHeart();
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -196,7 +197,7 @@ class _MainSideQuestState extends State<MainSideQuest> {
                 );
                 // context
                 //     .read<StatsCubit>()
-                //     .setLevelCompletedTime('level4', DateTime.now());
+                //     .setLevelCompletedTime('level4', Timestamp.now());
               },
               child: const Text(
                 "Skip",

@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class TeamStats {
   final String teamId;
   final int lives;
@@ -130,35 +132,36 @@ class TimeStamps {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'startedAt': startedAt?.millisecondsSinceEpoch,
-      'level1': level1?.millisecondsSinceEpoch,
-      'level2': level2?.millisecondsSinceEpoch,
-      'level3': level3?.millisecondsSinceEpoch,
-      'sidequest': sidequest?.millisecondsSinceEpoch,
-      'level4': level4?.millisecondsSinceEpoch,
-      'level5': level5?.millisecondsSinceEpoch,
-      'level6': level6?.millisecondsSinceEpoch,
-      'level7': level7?.millisecondsSinceEpoch,
+      'startedAt': startedAt,
+      'level1': level1,
+      'level2': level2,
+      'level3': level3,
+      'sidequest': sidequest,
+      'level4': level4,
+      'level5': level5,
+      'level6': level6,
+      'level7': level7,
     };
   }
 
   factory TimeStamps.fromMap(Map<String, dynamic> map) {
     return TimeStamps(
-      startedAt: map['startedAt'] != null ? DateTime.fromMillisecondsSinceEpoch(map['startedAt'] as int) : null,
-      level1: map['level1'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level1'] as int) : null,
-      level2: map['level2'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level2'] as int) : null,
-      level3: map['level3'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level3'] as int) : null,
-      sidequest: map['sidequest'] != null ? DateTime.fromMillisecondsSinceEpoch(map['sidequest'] as int) : null,
-      level4: map['level4'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level4'] as int) : null,
-      level5: map['level5'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level5'] as int) : null,
-      level6: map['level6'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level6'] as int) : null,
-      level7: map['level7'] != null ? DateTime.fromMillisecondsSinceEpoch(map['level7'] as int) : null,
+      startedAt: map['startedAt'] as DateTime,
+      level1: map['level1'] as DateTime,
+      level2: map['level2'] as DateTime,
+      level3: map['level3'] as DateTime,
+      sidequest: map['sidequest'] as DateTime,
+      level4: map['level4'] as DateTime,
+      level5: map['level5'] as DateTime,
+      level6: map['level6'] as DateTime,
+      level7: map['level7'] as DateTime,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory TimeStamps.fromJson(String source) => TimeStamps.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory TimeStamps.fromJson(String source) =>
+      TimeStamps.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -168,29 +171,28 @@ class TimeStamps {
   @override
   bool operator ==(covariant TimeStamps other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.startedAt == startedAt &&
-      other.level1 == level1 &&
-      other.level2 == level2 &&
-      other.level3 == level3 &&
-      other.sidequest == sidequest &&
-      other.level4 == level4 &&
-      other.level5 == level5 &&
-      other.level6 == level6 &&
-      other.level7 == level7;
+
+    return other.startedAt == startedAt &&
+        other.level1 == level1 &&
+        other.level2 == level2 &&
+        other.level3 == level3 &&
+        other.sidequest == sidequest &&
+        other.level4 == level4 &&
+        other.level5 == level5 &&
+        other.level6 == level6 &&
+        other.level7 == level7;
   }
 
   @override
   int get hashCode {
     return startedAt.hashCode ^
-      level1.hashCode ^
-      level2.hashCode ^
-      level3.hashCode ^
-      sidequest.hashCode ^
-      level4.hashCode ^
-      level5.hashCode ^
-      level6.hashCode ^
-      level7.hashCode;
+        level1.hashCode ^
+        level2.hashCode ^
+        level3.hashCode ^
+        sidequest.hashCode ^
+        level4.hashCode ^
+        level5.hashCode ^
+        level6.hashCode ^
+        level7.hashCode;
   }
 }

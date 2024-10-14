@@ -1,8 +1,11 @@
+import 'package:cwc_cryptic_crusade/features/db/local_db.dart';
+import 'package:cwc_cryptic_crusade/features/game/cubit/stats_cubit.dart';
 import 'package:cwc_cryptic_crusade/features/game/levels/level5_screen.dart';
 import 'package:cwc_cryptic_crusade/features/game/levels/level6_screen.dart';
 import 'package:cwc_cryptic_crusade/features/game/levels/level7_screen.dart';
 import 'package:cwc_cryptic_crusade/features/game/levels/side_quest.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/common/widgets/appbar.dart';
 import 'levels/level1_screen.dart';
@@ -24,6 +27,19 @@ class GameScreenState extends State<GameScreen> {
   void initState() {
     pageController = PageController();
     super.initState();
+    setToCurrentLevel();
+  }
+
+  Future<void> setToCurrentLevel() async {
+    final currentLevel = await getCurrentLevel();
+    if (currentLevel != null) {
+      if (currentLevel == -1) {
+        pageController.jumpToPage(3);
+      } else {
+        final currentLevelIndex = currentLevel - 1;
+        pageController.jumpToPage(currentLevelIndex);
+      }
+    }
   }
 
   @override

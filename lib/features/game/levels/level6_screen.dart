@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cwc_cryptic_crusade/core/common/widgets/highlighted_container.dart';
 import 'package:cwc_cryptic_crusade/features/game/cubit/stats_cubit.dart';
 import 'package:cwc_cryptic_crusade/utils/constants.dart';
@@ -61,7 +62,7 @@ class _Level6ScreenState extends State<Level6Screen> {
                       );
                       context
                           .read<StatsCubit>()
-                          .setLevelCompletedTime('level6', DateTime.now());
+                          .setLevelCompletedTime('level6', Timestamp.now());
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

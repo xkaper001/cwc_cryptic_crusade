@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,12 +18,13 @@ AppBar statsAppBar() {
     title: BlocBuilder<StatsCubit, StatsState>(
       builder: (context, state) {
         String level;
+        log('onLevel: ${state.teamStats.onLevel} in AppBar (StatsCubit)');
         if (state.teamStats.onLevel == -1) {
           level = "Side Quest";
         } else if (state.teamStats.onLevel == 100) {
           level = "Congratulations!";
         } else {
-          level = "Level ${state.teamStats.onLevel}";
+          level = "Level ${state.teamStats.onLevel + 1}";
         }
         return Text(level);
       },
