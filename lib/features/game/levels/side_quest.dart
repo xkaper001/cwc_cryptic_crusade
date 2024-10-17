@@ -91,9 +91,9 @@ class QuerySideQuest extends StatelessWidget {
                 duration: const Duration(milliseconds: 750),
                 curve: Curves.easeInOut,
               );
-              // context
-              //     .read<StatsCubit>()
-              //     .setLevelCompletedTime('level4', Timestamp.now());
+              context
+                  .read<StatsCubit>()
+                  .updateLevel(4);
             },
             child: const Text(
               "Skip",
@@ -161,13 +161,13 @@ class _MainSideQuestState extends State<MainSideQuest> {
                   });
                   if (keyController.text == AppConstants.sideQuestFlag) {
                     widget.pageController.animateToPage(
-                      5,
+                      6,
                       duration: const Duration(milliseconds: 750),
                       curve: Curves.easeInOut,
                     );
                     context
                         .read<StatsCubit>()
-                        .setLevelCompletedTime('sidequest', Timestamp.now());
+                        .updateLevel(6);
                   } else {
                     context.read<StatsCubit>().lostHeart();
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -195,9 +195,9 @@ class _MainSideQuestState extends State<MainSideQuest> {
                   duration: const Duration(milliseconds: 750),
                   curve: Curves.easeInOut,
                 );
-                // context
-                //     .read<StatsCubit>()
-                //     .setLevelCompletedTime('level4', Timestamp.now());
+                context
+                    .read<StatsCubit>()
+                    .updateLevel(4);
               },
               child: const Text(
                 "Skip",

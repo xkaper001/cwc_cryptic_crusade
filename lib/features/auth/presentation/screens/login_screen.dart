@@ -79,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         return "Enter the play_key";
                       }
                       // TODO: Change this to 8
-                      if (value.length != 7) {
-                        return "play_key is exactly 8 characters";
+                      if (value.length != 6) {
+                        return "play_key is exactly 6 characters";
                       }
                       return null;
                     },
@@ -95,11 +95,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   FilledButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        context.read<AuthBloc>().add(AuthLoginEvent(
-                              teamIdController.text.trim(),
-                              playKeyController.text.trim(),
-                            ));
-                        
+                        context.read<AuthBloc>().add(
+                              AuthLoginEvent(
+                                teamIdController.text.trim(),
+                                playKeyController.text.trim(),
+                              ),
+                            );
                       }
                     },
                     child: (state is AuthLoading)

@@ -62,7 +62,7 @@ class _Level2ScreenState extends State<Level2Screen> {
                       );
                       context
                           .read<StatsCubit>()
-                          .setLevelCompletedTime('level2', Timestamp.now());
+                          .updateLevel(3);
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

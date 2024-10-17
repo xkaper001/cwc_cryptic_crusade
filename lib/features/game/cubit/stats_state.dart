@@ -1,44 +1,86 @@
 part of 'stats_cubit.dart';
 
 @immutable
-sealed class StatsState {
-  final TeamStats teamStats;
+class StatsState {
+  final int hints;
+  final int onLevel;
+  final int lives;
+  final Map<String, DateTime> timestamps;
 
-  const StatsState({required this.teamStats});
-}
+  const StatsState({
+    required this.hints,
+    required this.onLevel,
+    required this.lives,
+    required this.timestamps,
+  });
 
-final class StatsInitial extends StatsState {
-  final String teamId;
-  StatsInitial(this.teamId)
-      : super(
-          teamStats: TeamStats(
-            teamId: '',
-            lives: 12,
-            hints: 3,
-            onLevel: 0,
-            timestamps: TimeStamps(
-              level1: null,
-              level2: null,
-              level3: null,
-              level4: null,
-              level5: null,
-              level6: null,
-              level7: null,
-              sidequest: null,
-              startedAt: null,
-            ),
-          ),
-        );
-}
+  factory StatsState.initial() {
+    return const StatsState(
+      hints: 3,
+      onLevel: 0,
+      lives: 12,
+      timestamps: {},
+    );
+  }
 
-final class StateUpdated extends StatsState {
-  const StateUpdated({required super.teamStats});
-}
 
-final class StateNextLevel extends StatsState {
-  const StateNextLevel({required super.teamStats});
-}
+  StatsState copyWith({
+    int? hints,
+    int? onLevel,
+    int? lives,
+    Map<String, DateTime>? timestamps,
+  }) {
+    return StatsState(
+      hints: hints ?? this.hints,
+      onLevel: onLevel ?? this.onLevel,
+      lives: lives ?? this.lives,
+      timestamps: timestamps ?? this.timestamps,
+    );
+  }
 
-final class StateGameOver extends StatsState {
-  const StateGameOver({required super.teamStats});
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'hints': hints,
+      'onLevel': onLevel,
+      'lives': lives,
+      'timestamps': timestamps,
+    };
+  }
+
+  factory StatsState.fromMap(Map<String, dynamic> map) {
+    return StatsState(
+      hints: map['hints'] as int,
+      onLevel: map['onLevel'] as int,
+      lives: map['lives'] as int,
+      timestamps: Map<String, DateTime>.from((map['timestamps'] as Map<String, DateTime>)),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory StatsState.fromJson(String source) => StatsState.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'StatsState(hints: $hints, onLevel: $onLevel, lives: $lives, timestamps: $timestamps)';
+  }
+
+  @override
+  bool operator ==(covariant StatsState other) {
+    if (identical(this, other)) return true;
+  
+    return 
+      other.hints == hints &&
+      other.onLevel == onLevel &&
+      other.lives == lives &&
+      mapEquals(other.timestamps, timestamps);
+  }
+
+  @override
+  int get hashCode {
+    return hints.hashCode ^
+      onLevel.hashCode ^
+      lives.hashCode ^
+      timestamps.hashCode;
+  }
 }

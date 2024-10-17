@@ -1,5 +1,9 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cwc_cryptic_crusade/features/game/cubit/stats_cubit.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final SharedPreferencesAsync _sharedPreferencesAsync = SharedPreferencesAsync();
@@ -24,6 +28,7 @@ void initDb(String teamId) {
   _sharedPreferencesAsync.setInt('currentLevel', 0);
 }
 
+
 Future<int?> getCurrentLevel() async {
   log('Current Level Requested');
   final currentLevel = await _sharedPreferencesAsync.getInt('currentLevel');
@@ -31,9 +36,11 @@ Future<int?> getCurrentLevel() async {
   return currentLevel;
 }
 
-setStart() {
+setStart(BuildContext context) async {
   log('Game Started');
-  if (_sharedPreferencesAsync.getInt('currentLevel') == null) {
+  final currentLevel = await getCurrentLevel();
+  context.read<StatsCubit>().updateLevel(1);
+  if (currentLevel == null) {
     _sharedPreferencesAsync.setInt('currentLevel', 1);
   }
 }

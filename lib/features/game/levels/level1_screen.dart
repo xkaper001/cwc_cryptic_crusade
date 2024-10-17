@@ -64,7 +64,7 @@ class _Level1ScreenState extends State<Level1Screen> {
                         );
                         context
                             .read<StatsCubit>()
-                            .setLevelCompletedTime('level1', Timestamp.now());
+                            .updateLevel(2);
                         
                       } else {
                         context.read<StatsCubit>().lostHeart();

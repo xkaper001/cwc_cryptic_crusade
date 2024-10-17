@@ -15,13 +15,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Timer timer;
   int number = 3;
-  int seconds = 3;
+  int seconds = 120;
+  late Timer timer;
+  late String teamId;
 
   @override
   void initState() {
     super.initState();
+    setState(() {
+      teamId = FirebaseAuth.instance.currentUser!.displayName ?? "Team";
+    });
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (seconds > 0) {
@@ -44,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'team-uid',
-          style: TextStyle(
+        title: Text(
+          teamId,
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -126,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               TextSpan(
                 text:
-                    'Your team consists of 4 members.\n\nEach team starts with a total of 12 lives (3 lives per member) displayed at top right.\n\nYou\'ll lose a life 💔 every time your team inputs a wrong answer.\n\nYou have 3 hints ⚡ for the whole game, use them wisely!',
+                    'Your team consists of 4 members.\n\nEach team starts with a total of 12 lives (3 lives per member) displayed at top right.\n\nYou\'ll lose a life 💔 every time your team inputs a wrong answer.',
                 style: TextStyle(
                   height: 1.5,
                   fontFamily: "SpaceMono",
@@ -261,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               TextSpan(
                 text:
-                    "Sharing QR codes, hints, or skipping locations is considered cheating.\n\nIf you're caught cheating, your team will be disqualified.\n\n Remember, If you are caught ;)\n\nPlay fair and have fun!",
+                    "Sharing QR codes, or skipping locations is considered cheating.\n\nIf you're caught cheating, your team will be disqualified.\n\n Remember, If you are caught ;)\n\nPlay fair and have fun!",
                 style: TextStyle(
                   height: 1.5,
                   fontFamily: "SpaceMono",
@@ -333,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
     showDialog(
         context: context,
         builder: (context) {
-          setStart();
+          setStart(context);
           return AlertDialog(
             title: const Text('Enter code'),
             content: TextField(
