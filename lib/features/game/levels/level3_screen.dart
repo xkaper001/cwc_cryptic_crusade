@@ -39,6 +39,7 @@ class _Level3ScreenState extends State<Level3Screen> {
               const RiddleBox(riddle: AppConstants.level3Riddle),
               const SizedBox(height: 16),
               TextField(
+                autofocus: true,
                 textAlign: TextAlign.center,
                 controller: flagController,
                 decoration: const InputDecoration(
@@ -62,7 +63,7 @@ class _Level3ScreenState extends State<Level3Screen> {
                       );
                       context
                           .read<StatsCubit>()
-                          .setLevelCompletedTime('level3', Timestamp.now());
+                          .updateLevel(-1);
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

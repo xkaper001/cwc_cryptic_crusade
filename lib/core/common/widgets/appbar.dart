@@ -8,23 +8,23 @@ import '../../../features/game/cubit/stats_cubit.dart';
 AppBar statsAppBar() {
   return AppBar(
     leadingWidth: 65,
-    leading: BlocBuilder<StatsCubit, StatsState>(
-      builder: (context, state) {
-        return TextButton(
-            onPressed: () => showHintConfirmation(context),
-            child: Text('${state.teamStats.hints} ⚡'));
-      },
-    ),
+    // leading: BlocBuilder<StatsCubit, StatsState>(
+    //   builder: (context, state) {
+    //     return TextButton(
+    //         onPressed: () => showHintConfirmation(context),
+    //         child: Text('${state.hints} ⚡'));
+    //   },
+    // ),
     title: BlocBuilder<StatsCubit, StatsState>(
       builder: (context, state) {
         String level;
-        log('onLevel: ${state.teamStats.onLevel} in AppBar (StatsCubit)');
-        if (state.teamStats.onLevel == -1) {
+        log('onLevel: ${state.onLevel} in AppBar (StatsCubit)');
+        if (state.onLevel == -1) {
           level = "Side Quest";
-        } else if (state.teamStats.onLevel == 100) {
+        } else if (state.onLevel == 100) {
           level = "Congratulations!";
         } else {
-          level = "Level ${state.teamStats.onLevel + 1}";
+          level = "Level ${state.onLevel}";
         }
         return Text(level);
       },
@@ -35,7 +35,7 @@ AppBar statsAppBar() {
         builder: (context, state) {
           return TextButton(
             onPressed: () {},
-            child: Text('${state.teamStats.lives}' ' ❤️'),
+            child: Text('${state.lives}' ' ❤️'),
           );
         },
       ),

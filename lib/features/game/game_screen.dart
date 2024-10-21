@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cwc_cryptic_crusade/features/db/local_db.dart';
 import 'package:cwc_cryptic_crusade/features/game/cubit/stats_cubit.dart';
 import 'package:cwc_cryptic_crusade/features/game/levels/level5_screen.dart';
@@ -33,6 +34,7 @@ class GameScreenState extends State<GameScreen> {
   Future<void> setToCurrentLevel() async {
     final currentLevel = await getCurrentLevel();
     if (currentLevel != null) {
+      context.read<StatsCubit>().updateLevel(currentLevel);
       if (currentLevel == -1) {
         pageController.jumpToPage(3);
       } else {

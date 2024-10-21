@@ -33,10 +33,10 @@ class _Level5ScreenState extends State<Level5Screen> {
           child: Column(
             children: [
               const Text(
-                "The encrypted string uses a Caesar Cipher with a shift of ~(first 3 digit prime number).",
+                AppConstants.level5Description,
               ),
               const SizedBox(height: 16),
-              const RiddleBox(riddle: AppConstants.level1Riddle),
+              const RiddleBox(riddle: AppConstants.level5Riddle),
               const SizedBox(height: 16),
               TextField(
                 textAlign: TextAlign.center,
@@ -55,14 +55,12 @@ class _Level5ScreenState extends State<Level5Screen> {
                     setState(() {
                       isLoading = false;
                     });
-                    if (flagController.text.trim() == AppConstants.level1Flag) {
+                    if (flagController.text.trim() == AppConstants.level5Flag) {
                       widget.pageController.nextPage(
                         duration: const Duration(seconds: 1),
                         curve: Curves.easeInOut,
                       );
-                      context
-                          .read<StatsCubit>()
-                          .setLevelCompletedTime('level5', Timestamp.now());
+                      context.read<StatsCubit>().updateLevel(6);
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

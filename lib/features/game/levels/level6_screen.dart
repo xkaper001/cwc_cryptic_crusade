@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cwc_cryptic_crusade/core/common/widgets/highlighted_container.dart';
 import 'package:cwc_cryptic_crusade/features/game/cubit/stats_cubit.dart';
 import 'package:cwc_cryptic_crusade/utils/constants.dart';
@@ -33,10 +32,10 @@ class _Level6ScreenState extends State<Level6Screen> {
           child: Column(
             children: [
               const Text(
-                "The encrypted string uses a Caesar Cipher with a shift of ~(first 3 digit prime number).",
+                AppConstants.level6Description,
               ),
-              const SizedBox(height: 16),
-              const RiddleBox(riddle: AppConstants.level1Riddle),
+              // const SizedBox(height: 16),
+              // const RiddleBox(riddle: AppConstants.level6Riddle),
               const SizedBox(height: 16),
               TextField(
                 textAlign: TextAlign.center,
@@ -55,14 +54,14 @@ class _Level6ScreenState extends State<Level6Screen> {
                     setState(() {
                       isLoading = false;
                     });
-                    if (flagController.text.trim() == AppConstants.level1Flag) {
+                    if (flagController.text.trim() == AppConstants.level6Flag) {
                       widget.pageController.nextPage(
                         duration: const Duration(seconds: 1),
                         curve: Curves.easeInOut,
                       );
                       context
                           .read<StatsCubit>()
-                          .setLevelCompletedTime('level6', Timestamp.now());
+                          .updateLevel(7);
                     } else {
                       context.read<StatsCubit>().lostHeart();
                       ScaffoldMessenger.of(context).showSnackBar(

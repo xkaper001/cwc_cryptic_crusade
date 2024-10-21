@@ -1,4 +1,4 @@
-package dev.xkaper.cwc_cryptic_crusade
+package com.example.cwc_cryptic_crusade
 
 import io.flutter.embedding.android.FlutterActivity
 

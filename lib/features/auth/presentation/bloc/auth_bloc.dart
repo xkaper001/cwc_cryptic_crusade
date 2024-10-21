@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cwc_cryptic_crusade/features/auth/domain/usecase/login.dart';
 import 'package:cwc_cryptic_crusade/features/db/local_db.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       res.fold(
         (l) => emit(AuthFailure(l.message)),
         (r) {
+          log('teamId is ${event.teamId}');
           initDb(event.teamId);
           emit(AuthSuccess(event.teamId));
         },

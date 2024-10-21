@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract interface class IAuthRemoteDataSource {
@@ -21,7 +23,8 @@ class AuthRemoteDataSource implements IAuthRemoteDataSource {
       email: email,
       password: password,
     );
-    ans.user!.updateDisplayName(teamId);
+    await ans.user!.updateDisplayName(teamId);
+    log(ans.user.toString());
     return ans.user;
   }
 }
