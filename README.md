@@ -12,5 +12,4 @@ CWC Cryptic Crusade App used in
 <img alt="Level 1" width="24%" src="https://github.com/user-attachments/assets/6833b325-77ae-4529-8cd5-d2f14cde16b5">
 <img alt="Side Quest" width="24%" src="https://github.com/user-attachments/assets/073d9af2-c660-4ce9-b1d0-c36a1adc6973">
 <img alt="Side Quest" width="24%" src="https://github.com/user-attachments/assets/1276f9c1-a1b1-421a-b089-79ef38f45a96">
-<img alt="Level 6" width="24%" src="https://github.com/user-attachments/assets/e27899f5-8f72-43e1-9dd4-97d208e8c444">
 <img alt="End Screen" width="24%" src="https://github.com/user-attachments/assets/ffb4af27-996d-48a3-98b2-bcb9224911fa">
