@@ -1,6 +1,13 @@
 # cwc_cryptic_crusade
 
-CWC Cryptic Crusade App used in 
+CWC Cryptic Crusade App used in the Cryptic Crusade Event at VIT Bhopal Univeristy.
+
+## About the App
+
+This app was made for playing the treasure hunt in the event.
+
+## Tech Stack
+
 
 
 # Screenshots of the app
