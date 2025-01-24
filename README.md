@@ -1,14 +1,10 @@
 # cwc_cryptic_crusade
 
-CWC Cryptic Crusade App used in the Cryptic Crusade Event at VIT Bhopal Univeristy.
-
-## About the App
-
-This app was made for playing the treasure hunt in the event.
+Cryptic Crusade Treasure Hunt App: Developed for the CWC event, where mystery meets adventure. Players navigate through riddles, decrypt codes, and scan location-based QR clues to progress in a dynamic treasure hunt. Built for thrill seekers, the app seamlessly integrates real-world exploration with digital gameplay for an unforgetttable adventure.
 
 ## Tech Stack
 
-
+[![My Skills](https://skillicons.dev/icons?i=flutter,dart,firebase&perline=6)](https://xkaper.webflow.io)
 
 # Screenshots of the app
 
