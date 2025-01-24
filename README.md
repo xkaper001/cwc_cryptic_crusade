@@ -1,4 +1,4 @@
-# cwc_cryptic_crusade
+# CWC Cryptic Crusade Treasure Hunt App
 
 Cryptic Crusade Treasure Hunt App: Developed for the CWC event, where mystery meets adventure. Players navigate through riddles, decrypt codes, and scan location-based QR clues to progress in a dynamic treasure hunt. Built for thrill seekers, the app seamlessly integrates real-world exploration with digital gameplay for an unforgetttable adventure.
 
